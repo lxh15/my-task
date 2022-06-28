@@ -1,9 +1,18 @@
 <template>
-  <div @click="father">
-    <!-- v-on -->
-    <a :href="url" @click.prevent>点击组织默认事件</a>
-    <p @click.stop="pFn">阻止冒泡</p>
-    <button @click.once.stop="btn">只执行一次</button>
+  <div>
+    <input type="text" v-model="msg" />
+    <br />
+    <input type="text" v-model.number="nub" />
+    <br />
+    <input type="text" v-model.trim="pass" />
+    <br />
+    <textarea
+      name=""
+      id=""
+      cols="30"
+      rows="10"
+      v-model.trim.lazy="txt"
+    ></textarea>
   </div>
 </template>
 
@@ -11,19 +20,11 @@
 export default {
   data() {
     return {
-      url: 'http://www.baidu.com',
+      msg: '',
+      nub: '',
+      pass: '',
+      txt: '',
     };
-  },
-  methods: {
-    father() {
-      console.log('father');
-    },
-    pFn() {
-      console.log('p');
-    },
-    btn() {
-      console.log('button');
-    },
   },
 };
 </script>
