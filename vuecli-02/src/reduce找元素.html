@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // reduce(function(previousValue, currentValue, currentIndex, array) { /* ... */ }, initialValue)
+
+        // 1、reduce() 求和
+        let arr = [{ a: 100 }, { a: 20 }, { a: -10 }]
+        let newArr = arr.reduce((pre, current) => {
+            return pre + current.a
+
+        }, 0) // 初始值为 0 (也可以不给)
+        console.log('arr数组的和为: ' + newArr); // 110
+
+        console.log('分割线=============================');
+        // 2、reduce() 查找字符串内字母出现的次数 (元素出现的次数) 
+        let str = 'asdassasdadfghjhgfds'
+        // let str1 = str.split('')
+
+        str = [...str] // 扩展运算符   
+
+        let newStr = str.reduce((pre, curr) => {
+            if (curr in pre) {
+                pre[curr]++
+
+            }
+            else {
+                pre[curr] = 1
+            }
+            return pre
+        }, {} )
+        console.log(newStr);
+
+
+    </script>
+
+</body>
+
+</html>
