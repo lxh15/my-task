@@ -70,6 +70,7 @@ export default {
     };
   },
   methods: {
+    // 添加用户信息
     addBtn() {
       if (this.flag) {
         this.arr[this.index].name = this.name;
@@ -79,24 +80,25 @@ export default {
         if (this.name.trim == '' || this.age == '' || this.gender.trim == '') {
           return alert('请输入正确信息');
         }
-        let name = this.name;
-        let age = this.age;
-        let gender = this.gender;
+        // 追加信息到数组
         this.arr.push({
-          name,
-          age,
-          gender,
+          name = this.name,
+          age = this.age,
+          gender = this.gender,
         });
       }
+      // 添加完信息 输入框清空
       this.name = '';
       this.age = '';
       this.gender = '';
       this.index = '';
       this.flag = false;
     },
+    // 删除用户信息
     delBtn(index) {
       this.arr = this.arr.filter((v, ind) => ind != index);
     },
+    // 编辑信息
     updBtn(item, index) {
       this.name = item.name;
       this.age = item.age;
